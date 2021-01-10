@@ -4,5 +4,8 @@
         "**/.project": true,
         "**/.settings": true,
         "**/.factorypath": true
+    },
+    "yaml.schemas": {
+        "src/main/resources/config.schema.json": ["*.gateway.yaml", "gateway.yaml"]
     }
 }
