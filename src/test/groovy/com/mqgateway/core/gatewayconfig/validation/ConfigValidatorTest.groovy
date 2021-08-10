@@ -4,6 +4,7 @@ import com.fasterxml.jackson.databind.ObjectMapper
 import com.mqgateway.configuration.GatewaySystemProperties
 import com.mqgateway.configuration.GatewaySystemProperties.ComponentsConfiguration
 import com.mqgateway.configuration.GatewaySystemProperties.ComponentsConfiguration.Mcp23017Configuration
+import com.mqgateway.configuration.GatewaySystemProperties.ComponentsConfiguration.MySensors
 import com.mqgateway.configuration.GatewaySystemProperties.ComponentsConfiguration.Serial
 import com.mqgateway.configuration.GatewaySystemProperties.ExpanderConfiguration
 import com.mqgateway.core.gatewayconfig.DeviceConfig
@@ -365,14 +366,17 @@ class ConfigValidatorTest extends Specification {
 
   static GatewaySystemProperties prepareSystemProperties(ExpanderConfiguration expanderConfiguration = null,
                                                          Mcp23017Configuration mcp23017Configuration = null,
-                                                         Serial serialConfiguration = null) {
+                                                         Serial serialConfiguration = null,
+                                                         MySensors mySensors = null) {
 
     def defaultExpanderConfiguration = new ExpanderConfiguration(false)
     def defaultMcp23017Configuration = new Mcp23017Configuration(expanderConfiguration ?: defaultExpanderConfiguration, null)
-    def defaultSerialConfiguration = new Serial(true, "/dev/serial", 9600)
+    def defaultSerialConfiguration = new Serial(false, "/dev/serial", 9600)
+    def mySensorsDefaultConfiguration = new MySensors(true, "/dev/myserial")
 
     def componentsConfiguration = new ComponentsConfiguration(mcp23017Configuration ?: defaultMcp23017Configuration,
-                                                              serialConfiguration ?: defaultSerialConfiguration)
+                                                              serialConfiguration ?: defaultSerialConfiguration,
+                                                              mySensors ?: mySensorsDefaultConfiguration)
     return new GatewaySystemProperties("eth0",
                                        GatewaySystemProperties.SystemPlatform.SIMULATED,
                                        expanderConfiguration ?: defaultExpanderConfiguration,

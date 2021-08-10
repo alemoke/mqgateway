@@ -1,5 +1,7 @@
 package com.mqgateway.core.device
 
+import com.mqgateway.core.device.mysensors.Bme280MySensorsInputDevice
+import com.mqgateway.core.device.mysensors.Bme280MySensorsInputDevice.Companion.CONFIG_MY_SENSORS_NODE_ID
 import com.mqgateway.core.device.serial.BME280PeriodicSerialInputDevice
 import com.mqgateway.core.device.serial.BME280PeriodicSerialInputDevice.Companion.CONFIG_ACCEPTABLE_PING_PERIOD_DEFAULT
 import com.mqgateway.core.device.serial.BME280PeriodicSerialInputDevice.Companion.CONFIG_PERIOD_BETWEEN_ASK_DEFAULT
@@ -14,6 +16,7 @@ import com.mqgateway.core.hardware.MqExpanderPinProvider
 import com.mqgateway.core.utils.SerialConnection
 import com.mqgateway.core.utils.SystemInfoProvider
 import com.mqgateway.core.utils.TimersScheduler
+import com.mqgateway.mysensors.MySensorsSerialConnection
 import com.pi4j.io.gpio.PinState
 import java.time.Duration
 
@@ -21,6 +24,7 @@ class DeviceFactory(
   private val pinProvider: MqExpanderPinProvider,
   private val timersScheduler: TimersScheduler,
   private val serialConnection: SerialConnection?,
+  private val mySensorsSerialConnection: MySensorsSerialConnection?,
   private val systemInfoProvider: SystemInfoProvider
 ) {
 
@@ -33,7 +37,7 @@ class DeviceFactory(
       .flatMap { point ->
         val portNumber = point.portNumber
         point.devices
-          .filter { serialConnection != null || !it.type.isSerialDevice() }
+          .filter { serialConnection != null || mySensorsSerialConnection != null || !it.type.isSerialDevice() } // TODO what about it?
           .map { create(portNumber, it, gateway) }
       }.toSet()
   }
@@ -73,24 +77,31 @@ class DeviceFactory(
         }
         DeviceType.BME280 -> {
 
-          serialConnection ?: throw SerialDisabledException(deviceConfig.id)
+          // TODO test creation of this MySensors device
+          if (deviceConfig.config.containsKey(CONFIG_MY_SENSORS_NODE_ID)) {
+            mySensorsSerialConnection ?: throw MySensorsSerialDisabledException(deviceConfig.id)
+            val nodeId = deviceConfig.config[CONFIG_MY_SENSORS_NODE_ID]?.toInt() ?: throw IllegalStateException()
+            Bme280MySensorsInputDevice(deviceConfig.id, nodeId, mySensorsSerialConnection)
+          } else {
+            serialConnection ?: throw SerialDisabledException(deviceConfig.id)
 
-          val toDevicePin = pinProvider.pinDigitalOutput(portNumber, deviceConfig.wires[0], deviceConfig.id + "_toDevicePin")
-          val fromDevicePin = pinProvider.pinDigitalInput(portNumber, deviceConfig.wires[1], deviceConfig.id + "_fromDevicePin")
-          val periodBetweenAskingForData =
-            Duration.ofSeconds(deviceConfig.config[CONFIG_PERIOD_BETWEEN_ASK_KEY]?.toLong() ?: CONFIG_PERIOD_BETWEEN_ASK_DEFAULT)
-          val acceptablePingPeriod =
-            Duration.ofSeconds(deviceConfig.config[CONFIG_ACCEPTABLE_PING_PERIOD_KEY]?.toLong() ?: CONFIG_ACCEPTABLE_PING_PERIOD_DEFAULT)
+            val toDevicePin = pinProvider.pinDigitalOutput(portNumber, deviceConfig.wires[0], deviceConfig.id + "_toDevicePin")
+            val fromDevicePin = pinProvider.pinDigitalInput(portNumber, deviceConfig.wires[1], deviceConfig.id + "_fromDevicePin")
+            val periodBetweenAskingForData =
+              Duration.ofSeconds(deviceConfig.config[CONFIG_PERIOD_BETWEEN_ASK_KEY]?.toLong() ?: CONFIG_PERIOD_BETWEEN_ASK_DEFAULT)
+            val acceptablePingPeriod =
+              Duration.ofSeconds(deviceConfig.config[CONFIG_ACCEPTABLE_PING_PERIOD_KEY]?.toLong() ?: CONFIG_ACCEPTABLE_PING_PERIOD_DEFAULT)
 
-          BME280PeriodicSerialInputDevice(
-            deviceConfig.id,
-            toDevicePin,
-            fromDevicePin,
-            serialConnection,
-            periodBetweenAskingForData,
-            acceptablePingPeriod,
-            timersScheduler
-          )
+            BME280PeriodicSerialInputDevice(
+              deviceConfig.id,
+              toDevicePin,
+              fromDevicePin,
+              serialConnection,
+              periodBetweenAskingForData,
+              acceptablePingPeriod,
+              timersScheduler
+            )
+          }
         }
         DeviceType.EMULATED_SWITCH -> {
           val pin = pinProvider.pinDigitalOutput(portNumber, deviceConfig.wires.first(), deviceConfig.id + "_pin")
@@ -179,4 +190,7 @@ class DeviceFactory(
 
   class SerialDisabledException(deviceId: String) :
     RuntimeException("Serial-related device '$deviceId' creation has been started, but serial is disabled in configuration")
+
+  class MySensorsSerialDisabledException(deviceId: String) :
+    RuntimeException("MySensors device '$deviceId' creation has been started, but MySensors serial is not configured properly")
 }

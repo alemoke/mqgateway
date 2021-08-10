@@ -14,7 +14,9 @@ import com.pi4j.io.gpio.GpioFactory
 import com.pi4j.io.i2c.I2CBus
 import com.pi4j.io.serial.SerialFactory
 import io.micronaut.context.annotation.Factory
+import io.micronaut.context.annotation.Requirements
 import io.micronaut.context.annotation.Requires
+import javax.inject.Named
 import javax.inject.Singleton
 
 @Factory
@@ -40,10 +42,25 @@ internal class Pi4JHardwareFactory {
   }
 
   @Singleton
-  @Requires(property = "gateway.system.components.serial.enabled", value = "true")
+  @Requirements(
+    Requires(property = "gateway.system.components.serial.enabled", value = "true"),
+    Requires(property = "gateway.system.components.my-sensors.enabled", value = "false")
+  )
   fun serial(gatewaySystemProperties: GatewaySystemProperties): MqSerial {
     val serial = Pi4JSerial(SerialFactory.createInstance())
     serial.open(gatewaySystemProperties.components.serial.device, gatewaySystemProperties.components.serial.baud)
+    return serial
+  }
+
+  @Singleton
+  @Named("mySensorsSerial")
+  @Requirements(
+    Requires(property = "gateway.system.components.serial.enabled", value = "false"),
+    Requires(property = "gateway.system.components.my-sensors.enabled", value = "true")
+  )
+  fun mySensorsSerial(gatewaySystemProperties: GatewaySystemProperties): MqSerial {
+    val serial = Pi4JSerial(SerialFactory.createInstance())
+    serial.open(gatewaySystemProperties.components.mySensors.serialDevice, 115200)
     return serial
   }
 }

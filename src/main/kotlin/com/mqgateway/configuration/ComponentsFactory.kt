@@ -22,7 +22,10 @@ import com.mqgateway.homie.gateway.GatewayHomieReceiver
 import com.mqgateway.homie.gateway.HomieDeviceFactory
 import com.mqgateway.homie.mqtt.HiveMqttClientFactory
 import com.mqgateway.homie.mqtt.MqttClientFactory
+import com.mqgateway.mysensors.MySensorMessageParser
+import com.mqgateway.mysensors.MySensorsSerialConnection
 import io.micronaut.context.annotation.Factory
+import io.micronaut.context.annotation.Requirements
 import io.micronaut.context.annotation.Requires
 import javax.inject.Named
 import javax.inject.Singleton
@@ -81,9 +84,10 @@ internal class ComponentsFactory {
     expanderPinProvider: MqExpanderPinProvider,
     gateway: Gateway,
     timersScheduler: TimersScheduler,
-    serialConnection: SerialConnection?
+    serialConnection: SerialConnection?,
+    mySensorsSerialConnection: MySensorsSerialConnection?
   ): DeviceRegistry {
-    val deviceFactory = DeviceFactory(expanderPinProvider, timersScheduler, serialConnection, systemInfoProvider)
+    val deviceFactory = DeviceFactory(expanderPinProvider, timersScheduler, serialConnection, mySensorsSerialConnection, systemInfoProvider)
     return DeviceRegistry(deviceFactory.createAll(gateway))
   }
 
@@ -107,10 +111,25 @@ internal class ComponentsFactory {
   fun homieReceiver(deviceRegistry: DeviceRegistry) = GatewayHomieReceiver(deviceRegistry)
 
   @Singleton
-  @Requires(property = "gateway.system.components.serial.enabled", value = "true")
+  @Requirements(
+    Requires(property = "gateway.system.components.serial.enabled", value = "true"),
+    Requires(property = "gateway.system.components.my-sensors.enabled", value = "false")
+  )
   fun serialConnection(serial: MqSerial): SerialConnection {
     val serialConnection = SerialConnection(serial)
     serialConnection.init()
     return serialConnection
+  }
+
+  // TODO jakieś testy na tworzenie beanów?
+  @Singleton
+  @Requirements(
+    Requires(property = "gateway.system.components.serial.enabled", value = "false"),
+    Requires(property = "gateway.system.components.my-sensors.enabled", value = "true")
+  )
+  fun mySensorsSerialConnection(@Named("mySensorsSerial") serial: MqSerial): MySensorsSerialConnection {
+    val mySensorsSerialConnection = MySensorsSerialConnection(serial, MySensorMessageParser())
+    mySensorsSerialConnection.init()
+    return mySensorsSerialConnection
   }
 }

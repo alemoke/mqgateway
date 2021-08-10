@@ -4,6 +4,7 @@ import static com.mqgateway.utils.TestGatewayFactory.gateway
 import static com.mqgateway.utils.TestGatewayFactory.point
 import static com.mqgateway.utils.TestGatewayFactory.room
 
+import com.mqgateway.core.device.mysensors.Bme280MySensorsInputDevice
 import com.mqgateway.core.device.serial.BME280PeriodicSerialInputDevice
 import com.mqgateway.core.device.serial.DHT22PeriodicSerialInputDevice
 import com.mqgateway.core.gatewayconfig.DeviceConfig
@@ -17,6 +18,8 @@ import com.mqgateway.core.hardware.simulated.SimulatedSerial
 import com.mqgateway.core.utils.FakeSystemInfoProvider
 import com.mqgateway.core.utils.SerialConnection
 import com.mqgateway.core.utils.TimersScheduler
+import com.mqgateway.mysensors.MySensorMessageParser
+import com.mqgateway.mysensors.MySensorsSerialConnection
 import com.pi4j.io.gpio.GpioPinDigitalInput
 import com.pi4j.io.gpio.GpioPinDigitalOutput
 import com.pi4j.io.gpio.PinPullResistance
@@ -29,7 +32,8 @@ class DeviceFactoryTest extends Specification {
 	SimulatedExpanderPinProvider pinProvider = new SimulatedExpanderPinProvider(new SimulatedGpioController(), new SimulatedMcpExpanders([]))
 
 	@Subject
-	DeviceFactory deviceFactory = new DeviceFactory(pinProvider, new TimersScheduler(), new SerialConnection(new SimulatedSerial(), 5000),
+  DeviceFactory deviceFactory = new DeviceFactory(pinProvider, new TimersScheduler(), new SerialConnection(new SimulatedSerial(), 5000),
+                                                  new MySensorsSerialConnection(new SimulatedSerial(), new MySensorMessageParser()),
                                                   new FakeSystemInfoProvider())
 
 	def "should create relay"() {
@@ -114,9 +118,25 @@ class DeviceFactoryTest extends Specification {
 		device.type == DeviceType.BME280
 	}
 
+	def "should create BME280 as MySensor device when 'mySensorsNodeId' is specified in config"() {
+		given:
+		def deviceConfig = new DeviceConfig("myBME280", "Test BME280 device", DeviceType.BME280, [WireColor.BROWN, WireColor.BROWN_WHITE],
+											[mySensorsNodeId: "10"], [:])
+		Gateway gateway = gateway([room([point("point name", 10, [deviceConfig])])])
+
+		when:
+		def devices = deviceFactory.createAll(gateway)
+
+		then:
+		def device = devices.last()
+		device instanceof Bme280MySensorsInputDevice
+		device.id == "myBME280"
+		device.type == DeviceType.BME280
+	}
+
 	def "should omit creation of serial device (e.g. bme280) when serial connection is not passed to factory"() {
 		given:
-		DeviceFactory deviceFactory = new DeviceFactory(pinProvider, new TimersScheduler(), null, new FakeSystemInfoProvider())
+		DeviceFactory deviceFactory = new DeviceFactory(pinProvider, new TimersScheduler(), null, null, new FakeSystemInfoProvider())
 		def deviceConfig = new DeviceConfig("myBME280", "Test BME280 device", DeviceType.BME280, [WireColor.GREEN, WireColor.GREEN_WHITE],
 											[periodBetweenAskingForDataInSec: "30", acceptablePingPeriodInSec: "20"], [:])
 		Gateway gateway = gateway([room([point("point name", 10, [deviceConfig])])])
