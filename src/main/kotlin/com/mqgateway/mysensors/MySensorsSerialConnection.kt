@@ -2,7 +2,6 @@ package com.mqgateway.mysensors
 
 import com.mqgateway.core.hardware.MqSerial
 import com.mqgateway.core.hardware.MqSerialDataEvent
-import com.mqgateway.core.utils.SerialConnectionAlreadyInitializedException
 import mu.KotlinLogging
 
 private val LOGGER = KotlinLogging.logger {}
@@ -42,3 +41,5 @@ class MySensorsSerialConnection(private val serial: MqSerial, private val messag
 interface MySensorsSerialListener {
   fun onMessageReceived(message: Message)
 }
+
+class SerialConnectionAlreadyInitializedException : RuntimeException("Serial connection cannot be initialized twice")
