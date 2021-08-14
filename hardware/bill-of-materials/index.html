@@ -1,0 +1,993 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      
+      <link rel="icon" href="../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.2.2, mkdocs-material-7.2.4">
+    
+    
+      
+        <title>Bill of materials - MqGateway</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.f7f47774.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.3f5d1f46.min.css">
+        
+      
+    
+    
+    
+      
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,400i,700%7CRoboto+Mono&display=fallback">
+        <style>:root{--md-text-font-family:"Roboto";--md-code-font-family:"Roboto Mono"}</style>
+      
+    
+    
+    
+    
+      
+  
+
+
+
+  
+  
+
+
+
+  <script>window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)},ga.l=+new Date,ga("create","UA-155443535-3","auto"),ga("set","anonymizeIp",!0),ga("send","pageview"),document.addEventListener("DOMContentLoaded",function(){document.forms.search&&document.forms.search.query.addEventListener("blur",function(){var e;this.value&&(e=document.location.pathname,ga("send","pageview",e+"?q="+this.value))}),"undefined"!=typeof location$&&location$.subscribe(function(e){ga("send","pageview",e.pathname)})})</script>
+  <script async src="https://www.google-analytics.com/analytics.js"></script>
+
+
+    
+    
+  </head>
+  
+  
+    
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="" data-md-color-primary="none" data-md-color-accent="none">
+  
+    
+    <script>function __prefix(e){return new URL("../..",location).pathname+"."+e}function __get(e,t=localStorage){return JSON.parse(t.getItem(__prefix(e)))}</script>
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#bill-of-materials" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+      <header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../.." title="MqGateway" class="md-header__button md-logo" aria-label="MqGateway" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54z"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            MqGateway
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Bill of materials
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5z"/></svg>
+      </label>
+      
+<div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5z"/></svg>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" aria-label="Clear" tabindex="-1">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+      <div class="md-header__source">
+        
+<a href="https://github.com/aetas/mqgateway/" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    GitHub
+  </div>
+</a>
+      </div>
+    
+  </nav>
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="MqGateway" class="md-nav__button md-logo" aria-label="MqGateway" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54z"/></svg>
+
+    </a>
+    MqGateway
+  </label>
+  
+    <div class="md-nav__source">
+      
+<a href="https://github.com/aetas/mqgateway/" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    GitHub
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        Start
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2" type="checkbox" id="__nav_2" >
+      
+      <label class="md-nav__link" for="__nav_2">
+        User Guide
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+      <nav class="md-nav" aria-label="User Guide" data-md-level="1">
+        <label class="md-nav__title" for="__nav_2">
+          <span class="md-nav__icon md-icon"></span>
+          User Guide
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../user-guide/introduction/" class="md-nav__link">
+        Introduction
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../user-guide/quick-start/" class="md-nav__link">
+        Quick Start
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../user-guide/integration/" class="md-nav__link">
+        Integration
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../user-guide/naming-convention/" class="md-nav__link">
+        Naming convention
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../user-guide/supported-devices/" class="md-nav__link">
+        Supported devices
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../user-guide/installation/" class="md-nav__link">
+        Installation
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../user-guide/configuration/" class="md-nav__link">
+        Configuration
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../user-guide/logging/" class="md-nav__link">
+        Logging
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../user-guide/troubleshooting/" class="md-nav__link">
+        Troubleshooting
+      </a>
+    </li>
+  
+
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+    
+  
+  
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_3" type="checkbox" id="__nav_3" checked>
+      
+      <label class="md-nav__link" for="__nav_3">
+        Hardware
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+      <nav class="md-nav" aria-label="Hardware" data-md-level="1">
+        <label class="md-nav__title" for="__nav_3">
+          <span class="md-nav__icon md-icon"></span>
+          Hardware
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../board-layout/" class="md-nav__link">
+        Mainboard layout
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../io-expander-board/" class="md-nav__link">
+        I/O Expander Board
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+    
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          Bill of materials
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        Bill of materials
+      </a>
+      
+        
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#mainboard" class="md-nav__link">
+    Mainboard
+  </a>
+  
+    <nav class="md-nav" aria-label="Mainboard">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#basic-elements" class="md-nav__link">
+    Basic elements
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#version-with-nano-pi-neo-additional" class="md-nav__link">
+    Version with Nano Pi Neo (additional)
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#version-with-raspberry-pi-34-not-fully-supported-yet" class="md-nav__link">
+    Version with Raspberry Pi 3/4 (not fully supported yet)
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#io-expander-board" class="md-nav__link">
+    I/O Expander Board
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../wiring/" class="md-nav__link">
+        Wiring
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../mysensors-node/" class="md-nav__link">
+        MySensor node
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../case/" class="md-nav__link">
+        Case
+      </a>
+    </li>
+  
+
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#mainboard" class="md-nav__link">
+    Mainboard
+  </a>
+  
+    <nav class="md-nav" aria-label="Mainboard">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#basic-elements" class="md-nav__link">
+    Basic elements
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#version-with-nano-pi-neo-additional" class="md-nav__link">
+    Version with Nano Pi Neo (additional)
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#version-with-raspberry-pi-34-not-fully-supported-yet" class="md-nav__link">
+    Version with Raspberry Pi 3/4 (not fully supported yet)
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#io-expander-board" class="md-nav__link">
+    I/O Expander Board
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          <div class="md-content" data-md-component="content">
+            <article class="md-content__inner md-typeset">
+              
+                
+                  <a href="https://github.com/aetas/mqgateway/edit/master/docs/hardware/bill-of-materials.md" title="Edit this page" class="md-content__button md-icon">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20.71 7.04c.39-.39.39-1.04 0-1.41l-2.34-2.34c-.37-.39-1.02-.39-1.41 0l-1.84 1.83 3.75 3.75M3 17.25V21h3.75L17.81 9.93l-3.75-3.75L3 17.25z"/></svg>
+                  </a>
+                
+                
+                <h1 id="bill-of-materials">Bill of materials</h1>
+<p>This page lists all elements required to build MqGateway device on the PCB.
+PCB is prepared to work with one of the SOC:</p>
+<ul>
+<li><a href="https://www.friendlyarm.com/index.php?route=product/product&amp;product_id=132">Nano PI NEO</a>,</li>
+<li>Raspberry Pi 3 or 4.</li>
+</ul>
+<p>Theoretically software should work on both, with simple configuration change, but it has not been tested on Raspberry Pi. That is why currently it is advised to use NanoPi NEO.    </p>
+<h2 id="mainboard">Mainboard</h2>
+<p>Components for <a href="../board-layout/">MqGateway Mainboard</a>.</p>
+<p>Full BOM is available <a href="https://github.com/aetas/MqGateway-PCB/blob/main/MqGateway/MqGateway_BOM.csv">here</a>.</p>
+<h3 id="basic-elements">Basic elements</h3>
+<table>
+<thead>
+<tr>
+<th>NAME</th>
+<th align="center">AMOUNT</th>
+<th align="center"></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>DC Power Jack Plug Socket 2.1/5.5</td>
+<td align="center">1</td>
+<td align="center"><a href="https://www.piekarz.pl/02542-gniazdo-zasilajace-dc-gdc21-55-2-1mm">link</a></td>
+</tr>
+<tr>
+<td>MCP23017-E/SP</td>
+<td align="center">4</td>
+<td align="center"><a href="https://www.piekarz.pl/22712-przetwornik-microchip-mcp23017-e-sp">link</a></td>
+</tr>
+<tr>
+<td>DIP28 Socket</td>
+<td align="center">4</td>
+<td align="center"><a href="https://www.piekarz.pl/04818-podstawka-zwykla-dip-dip28p-28-torow">link</a></td>
+</tr>
+<tr>
+<td>Screw Terminal 2-pin</td>
+<td align="center">2</td>
+<td align="center"><a href="https://www.piekarz.pl/00561-laczowka-xy306a-02p-5-0mm-2-tory">link</a></td>
+</tr>
+<tr>
+<td>RJ45 Ethernet Socket 2x8 Ports</td>
+<td align="center">1</td>
+<td align="center"><a href="https://www.aliexpress.com/item/1212644854.html">link</a></td>
+</tr>
+<tr>
+<td>Tact switch button 4-pin (6x6mm)</td>
+<td align="center">2</td>
+<td align="center"><a href="https://www.piekarz.pl/00678-mikroprzycisk-kls-ts6601-5-6x6mm-5mm-1-5mm/">link</a></td>
+</tr>
+<tr>
+<td>Logic level converter 4-ch 5V to 3.3V</td>
+<td align="center">1</td>
+<td align="center"><a href="https://www.aliexpress.com/item/32715353192.html">link</a></td>
+</tr>
+<tr>
+<td>Pin header 2x2</td>
+<td align="center">4</td>
+<td align="center"><a href="https://www.piekarz.pl/35904-piny-wtyk-pld20s-20-torow/">link</a></td>
+</tr>
+<tr>
+<td>Pin jumper</td>
+<td align="center">4</td>
+<td align="center"><a href="https://www.piekarz.pl/00481-zwora-jumper-b-1-tor/">link</a></td>
+</tr>
+<tr>
+<td>IDC10 Male Pin PCB Socket</td>
+<td align="center">1</td>
+<td align="center"><a href="https://www.piekarz.pl/17934-wtyk-bh10-s-10-torow/">link</a></td>
+</tr>
+<tr>
+<td>LD1117V33 Linear Voltage Regulator 3.3V</td>
+<td align="center">1</td>
+<td align="center"><a href="https://www.piekarz.pl/13101-stabilizator-st-microelectronics-ld1117v33c/">link</a></td>
+</tr>
+<tr>
+<td>MAX485 TTL to RS-485 Interface Module</td>
+<td align="center">1</td>
+<td align="center"><a href="https://www.aliexpress.com/item/4000112077167.html">link</a></td>
+</tr>
+<tr>
+<td>LED for power (d=3mm)</td>
+<td align="center">1</td>
+<td align="center"></td>
+</tr>
+<tr>
+<td>LED resistor (resistance depends on used LED)</td>
+<td align="center">1</td>
+<td align="center"></td>
+</tr>
+<tr>
+<td>2-color LED for status</td>
+<td align="center">1</td>
+<td align="center"><a href="https://en.maritex.com.pl/clearance_sale/led/led_-_diodes/ledb-3ygw30-c3.html">link</a></td>
+</tr>
+<tr>
+<td>Green LED Resistor (10Ω)</td>
+<td align="center">1</td>
+<td align="center"></td>
+</tr>
+<tr>
+<td>Yellow LED Resistor (43Ω</td>
+<td align="center">1</td>
+<td align="center"></td>
+</tr>
+<tr>
+<td>Power switch, Rocker Switch OFF-ON</td>
+<td align="center">1</td>
+<td align="center"><a href="https://en.maritex.com.pl/product/show/39905">link</a></td>
+</tr>
+<tr>
+<td>Case switch button, 12mm diameter OFF-(ON)</td>
+<td align="center">1</td>
+<td align="center"><a href="https://www.piekarz.pl/34283-przelacznik-pbw-12b/">link</a></td>
+</tr>
+</tbody>
+</table>
+<h3 id="version-with-nano-pi-neo-additional">Version with Nano Pi Neo (additional)</h3>
+<table>
+<thead>
+<tr>
+<th>NAME</th>
+<th align="center">AMOUNT</th>
+<th align="center"></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>NanoPi NEO (512M RAM)</td>
+<td align="center">1</td>
+<td align="center"><a href="https://www.friendlyarm.com/index.php?route=product/product&amp;product_id=132">link</a></td>
+</tr>
+<tr>
+<td>NanoPi NEO Heat Sink</td>
+<td align="center">1</td>
+<td align="center"><a href="https://www.friendlyarm.com/index.php?route=product/product&amp;product_id=221">link</a></td>
+</tr>
+<tr>
+<td>IDC24 Male Pin PCB Socket</td>
+<td align="center">1</td>
+<td align="center"><a href="https://www.maritex.com.pl/zlacza/zlacza_idc/idc_w_rastrze_2_54mm/zlacza_kolkowe_proste_w_rastrze_2_54mm_conntherm_1/bh24s-ct.html">link</a></td>
+</tr>
+<tr>
+<td>IDC24 flat ribbon cable 10 cm</td>
+<td align="center">1</td>
+<td align="center"><a href="https://www.aliexpress.com/item/32824377459.html">link</a></td>
+</tr>
+<tr>
+<td>Female IDC-plug 24 pin for ribbon cable</td>
+<td align="center">2</td>
+<td align="center"><a href="https://en.maritex.com.pl/connectors/idc_connectors/idc_connectors_2_54mm_pitch/idc_female_sockets_for_ribbon_cable_2_54_mm_pitch_conntherm/idc24-ct.html">link</a></td>
+</tr>
+<tr>
+<td>Screw M2.5 30mm</td>
+<td align="center">4</td>
+<td align="center"><a href="https://www.piekarz.pl/21920-wkret-m2-5-wkkm2530/">link</a></td>
+</tr>
+<tr>
+<td>Nut for screw M2.5</td>
+<td align="center">4</td>
+<td align="center"><a href="https://www.piekarz.pl/09575-nakretka-m2-5-nom252/">link</a></td>
+</tr>
+</tbody>
+</table>
+<h3 id="version-with-raspberry-pi-34-not-fully-supported-yet">Version with Raspberry Pi 3/4 (not fully supported yet)</h3>
+<table>
+<thead>
+<tr>
+<th>NAME</th>
+<th align="center">AMOUNT</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Raspberry Pi 2/3/4</td>
+<td align="center">1</td>
+</tr>
+<tr>
+<td>IDC40 Male Pin PCB Socket</td>
+<td align="center">1</td>
+</tr>
+<tr>
+<td>IDC40 flat ribbon cable 10 cm</td>
+<td align="center">1</td>
+</tr>
+<tr>
+<td>IDC40 ribbon connector</td>
+<td align="center">2</td>
+</tr>
+<tr>
+<td>Screw with nut</td>
+<td align="center">4</td>
+</tr>
+</tbody>
+</table>
+<h2 id="io-expander-board">I/O Expander Board</h2>
+<p>Components for <a href="../io-expander-board/">MqGateway I/O Expander Board</a>.</p>
+<p>Full BOM is available <a href="https://github.com/aetas/MqGateway-PCB/blob/main/IO_Expander/IO_Expander_BOM.csv">here</a>.</p>
+<table>
+<thead>
+<tr>
+<th>NAME</th>
+<th align="center">AMOUNT</th>
+<th align="center"></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>DC Power Jack Plug Socket 2.1/5.5</td>
+<td align="center">1</td>
+<td align="center"><a href="https://www.piekarz.pl/02542-gniazdo-zasilajace-dc-gdc21-55-2-1mm/">link</a></td>
+</tr>
+<tr>
+<td>MCP23017-E/SP</td>
+<td align="center">4</td>
+<td align="center"><a href="https://www.piekarz.pl/22712-przetwornik-microchip-mcp23017-e-sp/">link</a></td>
+</tr>
+<tr>
+<td>DIP28 Socket</td>
+<td align="center">4</td>
+<td align="center"><a href="https://www.piekarz.pl/04818-podstawka-zwykla-dip-dip28p-28-torow/">link</a></td>
+</tr>
+<tr>
+<td>Screw Terminal 2-pin</td>
+<td align="center">4</td>
+<td align="center"><a href="https://www.piekarz.pl/00561-laczowka-xy306a-02p-5-0mm-2-tory/">link</a></td>
+</tr>
+<tr>
+<td>8P8C/RJ45 Ethernet Socket 2x8 Ports</td>
+<td align="center">1</td>
+<td align="center"><a href="https://www.aliexpress.com/item/1212644854.html">link</a></td>
+</tr>
+<tr>
+<td>Pin header 2x2</td>
+<td align="center">1</td>
+<td align="center"><a href="https://www.piekarz.pl/35904-piny-wtyk-pld20s-20-torow/">link</a></td>
+</tr>
+<tr>
+<td>Pin jumper</td>
+<td align="center">2</td>
+<td align="center"><a href="https://www.piekarz.pl/00481-zwora-jumper-b-1-tor/">link</a></td>
+</tr>
+<tr>
+<td>IDC10 Male Pin PCB Socket</td>
+<td align="center">2</td>
+<td align="center"><a href="https://www.piekarz.pl/17934-wtyk-bh10-s-10-torow/">link</a></td>
+</tr>
+<tr>
+<td>Female IDC-plug 10 pin for ribbon cable</td>
+<td align="center">2</td>
+<td align="center"><a href="https://www.piekarz.pl/02212-gniazdo-fc10-idc10-10-torow/">link</a></td>
+</tr>
+<tr>
+<td>10-core ribbon cable 25cm</td>
+<td align="center">1</td>
+<td align="center"><a href="https://www.piekarz.pl/06502-przewod-plaski-awg28-10-10-zyl-linka-cu-0-09mm2/">link</a></td>
+</tr>
+<tr>
+<td>Terminal Block connector 4-pin (pitch 3.5mm)</td>
+<td align="center">1</td>
+<td align="center"><a href="https://www.piekarz.pl/00604-laczowka-stl1550-4-gh-4-tory/">link</a></td>
+</tr>
+<tr>
+<td>Red LED for power d=3mm</td>
+<td align="center">1</td>
+<td align="center"></td>
+</tr>
+<tr>
+<td>LED resistor (resistance depends on used LED)</td>
+<td align="center">1</td>
+<td align="center"></td>
+</tr>
+<tr>
+<td>Blue LED for CHECK d=3mm</td>
+<td align="center">1</td>
+<td align="center"></td>
+</tr>
+<tr>
+<td>LED resistor (resistance depends on used LED)</td>
+<td align="center">1</td>
+<td align="center"></td>
+</tr>
+<tr>
+<td>Miniature SPDT Slide Switch (pitch 3mm)</td>
+<td align="center">3</td>
+<td align="center"><a href="https://www.piekarz.pl/33509-przelacznik-ss02-12f20-l-6/">link</a></td>
+</tr>
+<tr>
+<td>LM2596 DC-DC Step down converter</td>
+<td align="center">1</td>
+<td align="center"><a href="https://www.aliexpress.com/item/4000627309533.html">link</a></td>
+</tr>
+</tbody>
+</table>
+                
+              
+              
+                
+
+
+              
+            </article>
+          </div>
+        </div>
+        
+      </main>
+      
+        
+<footer class="md-footer">
+  
+    <nav class="md-footer__inner md-grid" aria-label="Footer">
+      
+        
+        <a href="../io-expander-board/" class="md-footer__link md-footer__link--prev" aria-label="Previous: I/O Expander Board" rel="prev">
+          <div class="md-footer__button md-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+          </div>
+          <div class="md-footer__title">
+            <div class="md-ellipsis">
+              <span class="md-footer__direction">
+                Previous
+              </span>
+              I/O Expander Board
+            </div>
+          </div>
+        </a>
+      
+      
+        
+        <a href="../wiring/" class="md-footer__link md-footer__link--next" aria-label="Next: Wiring" rel="next">
+          <div class="md-footer__title">
+            <div class="md-ellipsis">
+              <span class="md-footer__direction">
+                Next
+              </span>
+              Wiring
+            </div>
+          </div>
+          <div class="md-footer__button md-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11H4z"/></svg>
+          </div>
+        </a>
+      
+    </nav>
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-footer-copyright">
+        
+        Made with
+        <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+          Material for MkDocs
+        </a>
+        
+      </div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    <script id="__config" type="application/json">{"base": "../..", "features": [], "translations": {"clipboard.copy": "Copy to clipboard", "clipboard.copied": "Copied to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.placeholder": "Type to start searching", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.term.missing": "Missing", "select.version.title": "Select version"}, "search": "../../assets/javascripts/workers/search.709b4209.min.js", "version": null}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.febc23d1.min.js"></script>
+      
+    
+  </body>
+</html>
